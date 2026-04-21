@@ -118,6 +118,7 @@ gh release create v1.2.3 --repo "$REPO" --title "v1.2.3" --notes "Release notes.
 
 When the user asks to "create a PR based on current changes", execute the full flow in one pass whenever possible instead of waiting for multiple follow-up prompts:
 
+0. If the user explicitly requires "commit on current branch" (no new branch), commit directly on the current branch and do not create a new branch.
 1. Inspect current working tree and diff scope.
 2. Create/switch feature branch, commit, push, and open PR.
 3. If user has approved auto-merge, enable `gh pr merge --auto --squash`.
@@ -263,6 +264,7 @@ gh release create v1.2.3 --repo "$REPO" --title "v1.2.3" --notes "Release notes.
 
 当用户提出“基于当前改动创建 PR”时，在条件允许下应一次性完成整条流程，不要等待多轮追问：
 
+0. 如果用户明确要求“在当前分支直接提交”（不新建分支），则必须直接在当前分支提交，不创建新分支。
 1. 检查当前工作区状态与 diff 范围。
 2. 创建/切换功能分支，完成提交、推送并发起 PR。
 3. 若用户已同意自动合并，开启 `gh pr merge --auto --squash`。
