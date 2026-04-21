@@ -51,7 +51,10 @@ gh pr checks 123 --repo "$REPO"
 # Create PR (from current branch)
 gh pr create --repo "$REPO" --title "feat: ..." --body "..."
 
-# Merge PR with squash
+# Enable auto-merge (respects branch protection; merges only after checks/reviews pass)
+gh pr merge 123 --repo "$REPO" --auto --squash
+
+# Merge PR with squash immediately (only when all requirements already pass)
 gh pr merge 123 --repo "$REPO" --squash --delete-branch
 ```
 
@@ -177,7 +180,10 @@ gh pr checks 123 --repo "$REPO"
 # 从当前分支创建 PR
 gh pr create --repo "$REPO" --title "feat: ..." --body "..."
 
-# 以 squash 方式合并 PR
+# 开启自动合并（遵守分支保护；仅在 checks/reviews 通过后自动合并）
+gh pr merge 123 --repo "$REPO" --auto --squash
+
+# 立即以 squash 方式合并（仅在所有要求已通过时）
 gh pr merge 123 --repo "$REPO" --squash --delete-branch
 ```
 
