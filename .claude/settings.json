@@ -12,7 +12,25 @@
       "Bash(git merge *)",
       "Bash(git cherry-pick *)",
       "Bash(git stash *)",
-      "Bash(gh pr *)"
+      "Bash(gh pr *)",
+      "Bash(claude mcp *)",
+      "Bash(npx skills *)",
+      "mcp__github__search_repositories",
+      "mcp__github__get_file_contents",
+      "Bash(gh repo *)",
+      "Bash(npm view *)",
+      "WebFetch(domain:skills.github.com)",
+      "WebFetch(domain:skillsmp.com)",
+      "Edit(/.claude/skills/github-repo-ops/**)"
+    ],
+    "additionalDirectories": [
+      "e:\\Study\\AI架构师\\.claude\\skills\\find-skills",
+      "e:\\Study\\AI架构师\\.claude\\skills"
     ]
-  }
+  },
+  "enabledMcpjsonServers": [
+    "figma",
+    "chrome-devtools",
+    "github"
+  ]
 }
