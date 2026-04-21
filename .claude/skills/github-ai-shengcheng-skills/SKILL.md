@@ -235,6 +235,7 @@ gh release create v1.2.3 --repo "$REPO" --title "v1.2.3" --notes "Release notes.
 - 先读后写：先做只读检查，再做变更。
 - 命令要显式带 `--repo` 和明确 ID。
 - 批量操作先给 dry-run 列表。
+- 合并成功后，必须切回 `master`，并删除本地与远端已合并分支。
 
 ## 常用一行命令
 
