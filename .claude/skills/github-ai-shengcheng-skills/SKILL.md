@@ -109,6 +109,7 @@ gh release create v1.2.3 --repo "$REPO" --title "v1.2.3" --notes "Release notes.
 - Prefer read-only inspection first, then mutate.
 - Keep commands scoped with `--repo` and explicit IDs.
 - For bulk operations, show a dry-run list first.
+- After merge succeeds, always return to `master` and delete the merged branch locally and remotely.
 
 ## Handy one-liners
 
