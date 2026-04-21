@@ -1,11 +1,11 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import HomePage from '../components/HomePage.vue'
 import FigmaStaticPage from '../components/FigmaStaticPage.vue'
 import FigmaRatePage from '../components/FigmaRatePage.vue'
 import HelloWorld from '../components/HelloWorld.vue'
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes: [
     {
       path: '/',
