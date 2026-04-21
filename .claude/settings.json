@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__github__create_pull_request",
+      "Bash(printenv GITHUB_TOKEN)",
+      "mcp__github__merge_pull_request",
+      "Bash(git pull *)",
+      "Bash(git branch *)",
+      "Bash(pnpm test *)",
+      "Bash(pnpm install *)",
+      "Bash(git commit -m ' *)"
+    ]
+  }
+}
