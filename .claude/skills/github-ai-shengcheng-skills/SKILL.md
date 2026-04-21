@@ -114,6 +114,22 @@ gh release create v1.2.3 --repo "$REPO" --title "v1.2.3" --notes "Release notes.
 - For bulk operations, show a dry-run list first.
 - After merge succeeds, always return to `master` and delete the merged branch locally and remotely.
 
+## One-pass delivery rule (required)
+
+When the user asks to "create a PR based on current changes", execute the full flow in one pass whenever possible instead of waiting for multiple follow-up prompts:
+
+1. Inspect current working tree and diff scope.
+2. Create/switch feature branch, commit, push, and open PR.
+3. If user has approved auto-merge, enable `gh pr merge --auto --squash`.
+4. Track merge result; once merged, immediately perform cleanup:
+   - `git checkout master`
+   - `git pull --rebase origin master`
+   - `git branch -d <merged-branch>`
+   - `git push origin --delete <merged-branch>` (if it still exists)
+5. Return one final status update with PR link + merge/cleanup result.
+
+Do not stop mid-flow and wait for repeated user reminders if prerequisites are already satisfied.
+
 ## Handy one-liners
 
 ```bash
@@ -242,6 +258,22 @@ gh release create v1.2.3 --repo "$REPO" --title "v1.2.3" --notes "Release notes.
 - 命令要显式带 `--repo` 和明确 ID。
 - 批量操作先给 dry-run 列表。
 - 合并成功后，必须切回 `master`，并删除本地与远端已合并分支。
+
+## 一次性闭环交付规则（必需）
+
+当用户提出“基于当前改动创建 PR”时，在条件允许下应一次性完成整条流程，不要等待多轮追问：
+
+1. 检查当前工作区状态与 diff 范围。
+2. 创建/切换功能分支，完成提交、推送并发起 PR。
+3. 若用户已同意自动合并，开启 `gh pr merge --auto --squash`。
+4. 跟踪合并结果；一旦合并成功，立即执行收尾：
+   - `git checkout master`
+   - `git pull --rebase origin master`
+   - `git branch -d <merged-branch>`
+   - `git push origin --delete <merged-branch>`（若远端仍存在）
+5. 最后一条回复一次性返回：PR 链接 + 合并结果 + 分支清理结果。
+
+如果前置条件已经满足，不要在流程中途停下并等待用户重复提醒。
 
 ## 常用一行命令
 
